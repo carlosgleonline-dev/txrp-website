@@ -138,7 +138,7 @@ dialog img.dseal{width:72px;height:72px;aspect-ratio:auto;object-fit:contain;fle
 .b-open{background:rgba(47,163,107,.18);color:#86e2b3}
 .dept .more{margin-top:auto;font-weight:600;font-size:14px;padding-top:4px}
 .hub{margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;border-radius:16px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.03);overflow:hidden;padding-top:34px}
-.hub.cap::before{top:0;left:0;right:0}
+
 .hub p{color:var(--mute);font-size:15px}
 .cad-ic{flex:none;width:clamp(72px,9vw,96px);height:clamp(72px,9vw,96px);border-radius:18px;display:grid;place-items:center;background:rgba(214,24,43,.15);border:1px solid rgba(255,59,78,.35)}.cad-ic svg{width:44%;height:44%;fill:var(--red2)}
 .civ-btns{display:flex;flex-wrap:wrap;gap:10px}
@@ -148,7 +148,8 @@ dialog img.dseal{width:72px;height:72px;aspect-ratio:auto;object-fit:contain;fle
 .rec-logo{flex:none;width:clamp(120px,16vw,170px);height:auto;filter:drop-shadow(0 0 1.5px rgba(255,255,255,.7)) drop-shadow(0 6px 16px rgba(0,0,0,.5))}
 .cap{position:relative}
 .cap::before{content:"";position:absolute;z-index:2;top:-1px;left:8px;right:8px;height:16px;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='none'%3E%3Cpath d='M0 0h120v5c-6 0-8 4-12 4s-5 5-9 5-4-5-9-5-7 3-12 3-6-4-11-4-6 7-10 7-5-6-10-6-7 3-12 3-5-5-10-5-6 4-10 4S5 5 0 5z' fill='%23fff'/%3E%3C/svg%3E") 0 0/120px 16px repeat-x;filter:drop-shadow(0 2px 2px rgba(0,0,0,.35));opacity:.95}
-.dept.cap::before{top:0}
+.cap{overflow:hidden}.cap::before{top:0;left:0;right:0}
+.card.cap,.box.cap{padding-top:36px}.res a.cap{padding-top:30px}
 /* ornaments */
 .orn{position:absolute;top:0;right:max(5vw,16px);display:flex;gap:26px;z-index:1;pointer-events:none}
 .orn div{transform-origin:top center;animation:sw 4s ease-in-out infinite}
