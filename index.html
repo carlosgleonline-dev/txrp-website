@@ -80,8 +80,22 @@ header{position:sticky;top:0;z-index:50;background:rgba(9,9,11,.9);backdrop-filt
 .holiday h3{font-size:21px;font-weight:700}
 .holiday p{color:#ffe6e9;font-size:15px}
 .count{display:flex;gap:8px}
-.count div{background:rgba(0,0,0,.22);border-radius:10px;padding:8px 12px;text-align:center;min-width:64px}
-.count b{display:block;font-family:Poppins;font-size:24px;font-weight:700;line-height:1.1;letter-spacing:-.04em}
+.count>div{text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+.flip{position:relative;display:block;width:62px;height:54px;perspective:260px;font:700 28px/54px Poppins,system-ui,sans-serif;letter-spacing:-.03em;color:#fff}
+.flip>span{position:absolute;left:0;right:0;height:50%;overflow:hidden;background:#140306;backface-visibility:hidden}
+.flip>span>span{display:block;height:54px;text-align:center}
+.flip .top,.flip .ftop{top:0;border-radius:9px 9px 0 0;background:linear-gradient(#2a070d,#1a0408)}
+.flip .bot,.flip .fbot{top:50%;border-radius:0 0 9px 9px;background:linear-gradient(#150306,#0d0204)}
+.flip .bot>span,.flip .fbot>span{margin-top:-27px}
+.flip::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.65);z-index:5}
+.flip .ftop{z-index:3;transform-origin:50% 100%}
+.flip .fbot{z-index:4;transform-origin:50% 0;transform:rotateX(90deg)}
+.flip.go .ftop{animation:ft .28s ease-in forwards}
+.flip.go .fbot{animation:fb .28s .28s ease-out forwards}
+@keyframes ft{to{transform:rotateX(-90deg)}}
+@keyframes fb{from{transform:rotateX(90deg)}to{transform:rotateX(0)}}
+@media (prefers-reduced-motion:reduce){.flip .ftop,.flip .fbot{display:none}}
+
 .count small{font-size:11px;font-weight:300;color:#ffd9dd}
 
 /* cards */
@@ -123,7 +137,8 @@ dialog img.dseal{width:72px;height:72px;aspect-ratio:auto;object-fit:contain;fle
 .b-hand{background:rgba(214,24,43,.22);color:#ff8a96}
 .b-open{background:rgba(47,163,107,.18);color:#86e2b3}
 .dept .more{margin-top:auto;font-weight:600;font-size:14px;padding-top:4px}
-.hub{margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;border-radius:16px;border:1px dashed rgba(255,255,255,.25);background:rgba(255,255,255,.03)}
+.hub{margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;border-radius:16px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.03);overflow:hidden;padding-top:34px}
+.hub.cap::before{top:0;left:0;right:0}
 .hub p{color:var(--mute);font-size:15px}
 .cad-ic{flex:none;width:clamp(72px,9vw,96px);height:clamp(72px,9vw,96px);border-radius:18px;display:grid;place-items:center;background:rgba(214,24,43,.15);border:1px solid rgba(255,59,78,.35)}.cad-ic svg{width:44%;height:44%;fill:var(--red2)}
 .civ-btns{display:flex;flex-wrap:wrap;gap:10px}
@@ -193,10 +208,11 @@ details p{padding-bottom:14px}
 .join img.logo{width:110px;height:110px;margin:0 auto 18px;display:block;filter:drop-shadow(0 6px 20px rgba(0,0,0,.6))}
 .join .cta{justify-content:center}
 
-footer{border-top:1px solid var(--line);padding:40px max(5vw,16px) 28px;background:#050506}
+footer{border-top:1px solid var(--line);padding:40px max(5vw,16px) 84px;background:#050506}
 .foot{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,1fr));gap:28px}
 .foot p,.foot a{color:var(--mute);font-size:14px}
 .foot a{display:block;text-decoration:none;padding:4px 0}
+.foot a.brand{display:inline-flex;align-items:center;gap:12px}.foot a.brand img{width:44px;height:44px}
 .foot a:hover{color:#fff}
 .foot h4{margin:0 0 8px;font-size:14px;font-weight:600}
 .credit{color:#fff;font-weight:600;letter-spacing:-.01em;text-decoration:underline;text-decoration-color:var(--red);text-underline-offset:3px}.credit:hover{color:var(--red2)}
@@ -213,7 +229,7 @@ footer{border-top:1px solid var(--line);padding:40px max(5vw,16px) 28px;backgrou
 
 @media (max-width:980px){.grid3,.depts,.res{grid-template-columns:repeat(2,minmax(0,1fr))}.split{grid-template-columns:minmax(0,1fr)}.foot{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.foot>div:first-child{grid-column:1/-1}}
 @media (max-width:860px){.links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg2);border-bottom:1px solid var(--line);padding:10px max(5vw,16px) 18px}.links.open{display:flex}.links a{padding:14px 12px}.menu{display:grid;place-items:center}.nav .btn.red{display:none}.pane.on{grid-template-columns:minmax(0,1fr)}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:600px){.grid3,.depts,.res,.pillars{grid-template-columns:minmax(0,1fr)}.hero{min-height:0}.count div{min-width:56px}.foot{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:600px){.grid3,.depts,.res,.pillars{grid-template-columns:minmax(0,1fr)}.hero{min-height:0}.flip{width:52px;height:46px;font-size:23px;line-height:46px}.flip>span>span{height:46px}.flip .bot>span,.flip .fbot>span{margin-top:-23px}.foot{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
 <body>
@@ -276,10 +292,10 @@ footer{border-top:1px solid var(--line);padding:40px max(5vw,16px) 28px;backgrou
       <p id="annText">TXRP was founded on December 24, 2023. Count down with us.</p>
     </div>
     <div class="count" id="count">
-      <div><b id="cd-d">0</b><small>days</small></div>
-      <div><b id="cd-h">0</b><small>hours</small></div>
-      <div><b id="cd-m">0</b><small>mins</small></div>
-      <div><b id="cd-s">0</b><small>secs</small></div>
+      <div><span class="flip" id="cd-d"><span class="top"><span>00</span></span><span class="bot"><span>00</span></span><span class="ftop"><span>00</span></span><span class="fbot"><span>00</span></span></span><small>days</small></div>
+      <div><span class="flip" id="cd-h"><span class="top"><span>00</span></span><span class="bot"><span>00</span></span><span class="ftop"><span>00</span></span><span class="fbot"><span>00</span></span></span><small>hours</small></div>
+      <div><span class="flip" id="cd-m"><span class="top"><span>00</span></span><span class="bot"><span>00</span></span><span class="ftop"><span>00</span></span><span class="fbot"><span>00</span></span></span><small>mins</small></div>
+      <div><span class="flip" id="cd-s"><span class="top"><span>00</span></span><span class="bot"><span>00</span></span><span class="ftop"><span>00</span></span><span class="fbot"><span>00</span></span></span><small>secs</small></div>
     </div>
   </div>
 </section>
@@ -306,7 +322,7 @@ footer{border-top:1px solid var(--line);padding:40px max(5vw,16px) 28px;backgrou
   <div class="wrap split">
     <div>
       <h2 class="reveal">More than a server. A county that runs like the real thing.</h2>
-      <p class="lede reveal">Texas State Roleplay was founded by <a class="credit" href="https://discord.com/users/829419135691522058" target="_blank" rel="noopener">Daniel</a> on Christmas Eve 2023 with one goal: give ER:LC players a place where roleplay is taken seriously and the community still feels like home. Today, more than 26,000 members call Collin County their beat.</p>
+      <p class="lede reveal">Texas State Roleplay was founded by <a class="credit" href="https://discord.com/users/829419135691522058" target="_blank" rel="noopener">Dan1el_TXRP</a> on Christmas Eve 2023 with one goal: give ER:LC players a place where roleplay is taken seriously and the community still feels like home. Today, more than 26,000 members call Collin County their beat.</p>
       <p class="lede reveal">Every department has its own leadership, training and chain of command. Calls get real responses, scenes get worked properly, and staff are there to keep it fair. You can start the day you join as a Melissa police officer or volunteer firefighter, then work your way up to DPS, the Sheriff's Office, or the Marshals.</p>
       <div class="pillars reveal">
         <div><b>Realistic roleplay</b><span>Texas agencies, callsigns and procedures</span></div>
@@ -475,7 +491,7 @@ footer{border-top:1px solid var(--line);padding:40px max(5vw,16px) 28px;backgrou
       <div><h4>Community</h4><a href="https://discord.gg/txrp" target="_blank" rel="noopener">Discord</a><a href="https://discord.gg/txrpdepartments" target="_blank" rel="noopener">Department Hub</a><a href="https://www.roblox.com/communities/34038850/Texas-State-R-leplay#!/about" target="_blank" rel="noopener">Roblox group</a><a href="https://melonly.com/servers/txrp1" target="_blank" rel="noopener">Vote for TXRP</a><a href="https://melonly.com/cad?joinCode=RSVJETOQ&amp;communityId=SSPUPI" target="_blank" rel="noopener">Melonly CAD</a><a href="https://discord.gg/gPgtRxwC5y" target="_blank" rel="noopener">Civilian Operations</a><a href="https://discord.gg/GxWfbwvvte" target="_blank" rel="noopener">Recording Server</a><a href="https://discord.gg/erlcpackages" target="_blank" rel="noopener">ER:LC Packages</a></div>
     </div>
     <div class="legal">
-      <span>© 2026 Texas State Roleplay · Founded by <a class="credit" href="https://discord.com/users/829419135691522058" target="_blank" rel="noopener">Daniel</a> · Website created by <a class="credit" href="https://discord.com/users/1260434266093916243" target="_blank" rel="noopener">crxlos</a> · Information by <a class="credit" href="https://discord.com/users/1183116266165256202" target="_blank" rel="noopener">Jack</a></span>
+      <span>© 2026 Texas State Roleplay · Founded by <a class="credit" href="https://discord.com/users/829419135691522058" target="_blank" rel="noopener">Dan1el_TXRP</a> · Website created by <a class="credit" href="https://discord.com/users/1260434266093916243" target="_blank" rel="noopener">crxlos</a> · Information by <a class="credit" href="https://discord.com/users/1183116266165256202" target="_blank" rel="noopener">Jack_Lorenzo</a></span>
       <span>A fictional roleplay community. Not affiliated with Roblox Corporation, Police Roleplay Community, or any real government agency.</span>
     </div>
   </div>
@@ -574,6 +590,13 @@ const R=[
 ];
 $('#res').innerHTML=R.map(([i,t,d,u])=>`<a class="cap reveal" href="${u}" target="_blank" rel="noopener"><span class="ic"><svg><use href="#${i}"/></svg></span><div><b>${t}</b><span>${d}</span></div></a>`).join('');
 
+/* flip clock digits */
+const flip=(id,n)=>{const el=document.getElementById(id),v=String(n).padStart(2,'0'),old=el.dataset.v;if(old===v)return;
+  const [top,bot,ft,fb]=[...el.children].map(c=>c.firstElementChild);
+  if(old===undefined||reduce){top.textContent=bot.textContent=ft.textContent=fb.textContent=v;el.dataset.v=v;return}
+  el.classList.remove('go');void el.offsetWidth;
+  top.textContent=v;bot.textContent=old;ft.textContent=old;fb.textContent=v;el.dataset.v=v;el.classList.add('go');
+  clearTimeout(el._t);el._t=setTimeout(()=>{bot.textContent=el.dataset.v},600)};
 /* anniversary countdown (Christmas Eve, Central time) */
 const tick=()=>{
   const now=new Date();let y=now.getUTCFullYear();
@@ -588,10 +611,10 @@ const tick=()=>{
   const n=y-2023, sfx=n%10===1&&n!==11?'st':n%10===2&&n!==12?'nd':n%10===3&&n!==13?'rd':'th';
   $('#annTitle').textContent='Our '+n+sfx+' anniversary is Christmas Eve';
   let s=Math.max(0,Math.floor((target-now)/1000));
-  $('#cd-d').textContent=Math.floor(s/86400);
-  $('#cd-h').textContent=Math.floor(s%86400/3600);
-  $('#cd-m').textContent=Math.floor(s%3600/60);
-  $('#cd-s').textContent=s%60;
+  flip('cd-d',Math.floor(s/86400));
+  flip('cd-h',Math.floor(s%86400/3600));
+  flip('cd-m',Math.floor(s%3600/60));
+  flip('cd-s',s%60);
 };
 tick();setInterval(tick,1000);
 
