@@ -125,6 +125,7 @@ dialog img.dseal{width:72px;height:72px;aspect-ratio:auto;object-fit:contain;fle
 .dept .more{margin-top:auto;font-weight:600;font-size:14px;padding-top:4px}
 .hub{margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;border-radius:16px;border:1px dashed rgba(255,255,255,.25);background:rgba(255,255,255,.03)}
 .hub p{color:var(--mute);font-size:15px}
+.cad-ic{flex:none;width:clamp(72px,9vw,96px);height:clamp(72px,9vw,96px);border-radius:18px;display:grid;place-items:center;background:rgba(214,24,43,.15);border:1px solid rgba(255,59,78,.35)}.cad-ic svg{width:44%;height:44%;fill:var(--red2)}
 .civ-btns{display:flex;flex-wrap:wrap;gap:10px}
 @media (max-width:600px){.civ-btns .btn{flex:1 1 100%;justify-content:center}}
 
@@ -227,6 +228,7 @@ footer{border-top:1px solid var(--line);padding:40px max(5vw,16px) 28px;backgrou
   <symbol id="folder" viewBox="0 0 24 24"><path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2Z"/></symbol>
   <symbol id="box" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 2.3L5.5 8 12 11.7 18.5 8 12 4.3ZM5 9.7v6.1l6 3.4v-6.1L5 9.7Zm14 0-6 3.4v6.1l6-3.4V9.7Z"/></symbol>
   <symbol id="star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+  <symbol id="cad" viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7v2h3v2H7v-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v9h16V6H4Zm2 2h5v2H6V8Zm0 3h8v2H6v-2Zm10-3h2v5h-2V8Z"/></symbol>
   <symbol id="snowf" viewBox="0 0 24 24"><path d="M11 1h2v4.2l2.6-2.6 1.4 1.4-4 4V11h3l4-4 1.4 1.4-2.6 2.6H23v2h-4.2l2.6 2.6L20 17l-4-4h-3v3l4 4-1.4 1.4-2.6-2.6V23h-2v-4.2l-2.6 2.6L7 20l4-4v-3H8l-4 4-1.4-1.4L5.2 13H1v-2h4.2L2.6 8.4 4 7l4 4h3V8L7 4l1.4-1.4L11 5.2z"/></symbol>
 </svg>
 
@@ -331,6 +333,10 @@ footer{border-top:1px solid var(--line);padding:40px max(5vw,16px) 28px;backgrou
     <div class="hub cap reveal">
       <div style="display:flex;gap:16px;align-items:center"><img class="rec-logo hub-logo" src="img/hub.png" alt="TXRP Department Hub logo" loading="lazy"><div><h3>Department Hub</h3><p>To advance in any department, you need to join the Department Hub.</p></div></div>
       <a class="btn red" href="https://discord.gg/txrpdepartments" target="_blank" rel="noopener"><svg class="i"><use href="#discord"/></svg>Join the hub</a>
+    </div>
+    <div class="hub cap reveal" style="margin-top:14px">
+      <div style="display:flex;gap:16px;align-items:center"><span class="cad-ic"><svg><use href="#cad"/></svg></span><div><h3>Melonly CAD</h3><p>Our computer-aided dispatch for calls, units and records. Join code <b style="color:#fff">RSVJETOQ</b> <button class="copy" data-copy="RSVJETOQ" style="height:32px;margin-left:4px">Copy</button></p></div></div>
+      <a class="btn red" href="https://melonly.com/cad?joinCode=RSVJETOQ&amp;communityId=SSPUPI" target="_blank" rel="noopener"><svg class="i"><use href="#cad"/></svg>Join the CAD</a>
     </div>
     <div class="hub cap reveal" style="margin-top:14px">
       <div style="display:flex;gap:16px;align-items:center"><img class="rec-logo hub-logo" src="img/civ.png" alt="TXRP Civilian Operations logo" loading="lazy"><div><h3>Civilian Operations</h3><p>Civilian jobs, businesses, factions and roleplay that bring Collin County to life.</p></div></div>
@@ -466,7 +472,7 @@ footer{border-top:1px solid var(--line);padding:40px max(5vw,16px) 28px;backgrou
         <p style="margin-top:10px;max-width:42ch">Realistic, professionally moderated ER:LC roleplay in Collin County, Texas. Est. December 24, 2023.</p>
       </div>
       <div><h4>Explore</h4><a href="#about">About</a><a href="#departments">Departments</a><a href="#guides">Guides</a><a href="#resources">Resources</a></div>
-      <div><h4>Community</h4><a href="https://discord.gg/txrp" target="_blank" rel="noopener">Discord</a><a href="https://discord.gg/txrpdepartments" target="_blank" rel="noopener">Department Hub</a><a href="https://www.roblox.com/communities/34038850/Texas-State-R-leplay#!/about" target="_blank" rel="noopener">Roblox group</a><a href="https://melonly.com/servers/txrp1" target="_blank" rel="noopener">Vote for TXRP</a><a href="https://discord.gg/gPgtRxwC5y" target="_blank" rel="noopener">Civilian Operations</a><a href="https://discord.gg/GxWfbwvvte" target="_blank" rel="noopener">Recording Server</a><a href="https://discord.gg/erlcpackages" target="_blank" rel="noopener">ER:LC Packages</a></div>
+      <div><h4>Community</h4><a href="https://discord.gg/txrp" target="_blank" rel="noopener">Discord</a><a href="https://discord.gg/txrpdepartments" target="_blank" rel="noopener">Department Hub</a><a href="https://www.roblox.com/communities/34038850/Texas-State-R-leplay#!/about" target="_blank" rel="noopener">Roblox group</a><a href="https://melonly.com/servers/txrp1" target="_blank" rel="noopener">Vote for TXRP</a><a href="https://melonly.com/cad?joinCode=RSVJETOQ&amp;communityId=SSPUPI" target="_blank" rel="noopener">Melonly CAD</a><a href="https://discord.gg/gPgtRxwC5y" target="_blank" rel="noopener">Civilian Operations</a><a href="https://discord.gg/GxWfbwvvte" target="_blank" rel="noopener">Recording Server</a><a href="https://discord.gg/erlcpackages" target="_blank" rel="noopener">ER:LC Packages</a></div>
     </div>
     <div class="legal">
       <span>© 2026 Texas State Roleplay · Founded by Daniel · Website by <a class="credit" href="https://discord.com/users/1260434266093916243" target="_blank" rel="noopener">crxlos</a></span>
@@ -500,8 +506,8 @@ links.addEventListener('click',e=>{if(e.target.tagName==='A'){links.classList.re
 const toast=$('#toast');let tt;
 const say=m=>{toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('show'),1800)};
 $$('[data-copy]').forEach(b=>b.addEventListener('click',async()=>{
-  try{await navigator.clipboard.writeText(b.dataset.copy);say('Join code copied: '+b.dataset.copy)}
-  catch(e){say('Join code: '+b.dataset.copy)}
+  try{await navigator.clipboard.writeText(b.dataset.copy);say('Copied: '+b.dataset.copy)}
+  catch(e){say('Code: '+b.dataset.copy)}
 }));
 
 /* departments */
