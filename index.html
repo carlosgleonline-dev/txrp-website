@@ -586,7 +586,7 @@ const tick=()=>{
 tick();setInterval(tick,1000);
 
 /* counter */
-const counter=el=>{const t=+el.dataset.count;if(reduce)return;let st;const run=ts=>{st??=ts;const p=Math.min(1,(ts-st)/1600),v=Math.round(t*(1-Math.pow(1-p,3)));el.textContent=v.toLocaleString('en-US');if(p<1)requestAnimationFrame(run)};requestAnimationFrame(run)};
+const counter=el=>{if(reduce)return;let st;const run=ts=>{st??=ts;const t=+el.dataset.count,p=Math.min(1,(ts-st)/1600),v=Math.round(t*(1-Math.pow(1-p,3)));el.textContent=v.toLocaleString('en-US');if(p<1)requestAnimationFrame(run)};requestAnimationFrame(run)};
 $$('[data-count]').forEach(counter);
 /* live Discord member count (works when hosted on your own site; keeps the saved number otherwise) */
 fetch('https://discord.com/api/v10/invites/txrp?with_counts=true').then(r=>r.ok?r.json():Promise.reject()).then(d=>{
